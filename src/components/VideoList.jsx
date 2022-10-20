@@ -1,11 +1,9 @@
-import exampleVideoData from '/compiled/src/data/exampleVideoData.js';
 import VideoListEntry from '/compiled/src/components/VideoListEntry.js'
-//should be an array of video objects
 
 var VideoList = (props) =>(
   <div className="video-list">
     {props.videos.map((video) => (
-      <VideoListEntry video={video} key={video.id.videoId}/>
+      <VideoListEntry video={video} key={video.id.videoId} setCurrentVideo={props.setCurrentVideo}/>
     ))}
   </div>
 );
