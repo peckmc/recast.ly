@@ -2,6 +2,8 @@ import exampleVideoData from '/compiled/src/data/exampleVideoData.js';
 import VideoList from '/compiled/src/components/VideoList.js';
 import VideoPlayer from '/compiled/src/components/VideoPlayer.js';
 import VideoListEntry from '/compiled/src/components/VideoListEntry.js';
+import searchYoutube from '/compiled/src/lib/searchYouTube.js';
+
 const { useState } = React;
 
 var App = () => {
