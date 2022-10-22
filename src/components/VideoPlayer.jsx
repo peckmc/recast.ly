@@ -1,4 +1,9 @@
-var VideoPlayer = (props) => (
+import searchYouTube from '/compiled/src/lib/searchYouTube.js';
+
+var VideoPlayer = (props) => {
+  console.log('the object containing all the info about our data', props.video);
+  console.log('the id of the video to append to url', props.video.id.videoId);
+return (
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
       <iframe className="embed-responsive-item" src={"https://www.youtube.com/embed/" + props.video.id.videoId} allowFullScreen></iframe>
@@ -9,6 +14,7 @@ var VideoPlayer = (props) => (
     </div>
   </div>
 );
+}
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

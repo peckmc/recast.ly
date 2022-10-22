@@ -7,13 +7,18 @@ $.ajaxPrefilter(function (settings, _, jqXHR) {
 
 var searchYouTube = (query, callback) => {
   $.ajax({
+      async: false,
       url: server,
       data: {
-        q: query,
-        type: 'video'
+        q: query
       },
       type: 'GET',
-      success: callback,
+      success: function(data) {
+        console.log(data);
+        // setCurrentList(data);
+        // setCurrentVideo(data[0]);
+        callback(data);
+      },
       error: function(error) {
         console.error('react.ly: Failed to fetch messages', error);
       }

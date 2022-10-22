@@ -1,25 +1,32 @@
 import exampleVideoData from '/compiled/src/data/exampleVideoData.js';
-import VideoList from '/compiled/src/components/VideoList.js';
-import VideoPlayer from '/compiled/src/components/VideoPlayer.js';
-import VideoListEntry from '/compiled/src/components/VideoListEntry.js';
-import searchYoutube from '/compiled/src/lib/searchYouTube.js';
+import VideoList from './VideoList.js';
+import VideoPlayer from './VideoPlayer.js';
+import VideoListEntry from './VideoListEntry.js';
+import searchYouTube from '../lib/searchYouTube.js';
+// import Search from '/compiled/src/components/Search.js'
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
-var App = () => {
+var App = (props) => {
   // Initialize a state in App to keep track of all the videos in the video list.
   const [currentList, setCurrentList] = useState(exampleVideoData);
 
   // initialize state in App to keep track of the current video in the player.
   const [currentVideo, setCurrentVideo] = useState(exampleVideoData[0]);
 
-
+  useEffect(() => {
+    console.log('useEffect is working');
+    console.log(searchYouTube);
+    searchYouTube('cat', (data) => {
+      setCurrentList(data);
+    })
+  }, []);
 
   return (
     <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
-          <div><h5><em>search</em> view goes here</h5></div>
+          {/* <Search setCurrentList={setCurrentList} setCurrentVideo={setCurrentVideo} /> */}
         </div>
       </nav>
       <div className="row">
