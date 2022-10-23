@@ -14,9 +14,6 @@ var searchYouTube = (query, callback) => {
       },
       type: 'GET',
       success: function(data) {
-        console.log(data);
-        // setCurrentList(data);
-        // setCurrentVideo(data[0]);
         callback(data);
       },
       error: function(error) {
